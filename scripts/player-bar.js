@@ -14,4 +14,14 @@
     player.playPause(nextSong);
 
   });
+
+  $('button#previous').on('click', function() {
+    if (player.playState !== 'playing') { return; }
+
+    const prevSongIndex = currentSongIndex - 1;
+    if (prevSongIndex <= album.songs.length) { return; }
+    const prevSong = album.songs[prevSongIndex];
+    player.playPause(prevSong);
+
+  });
 }
