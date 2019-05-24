@@ -18,8 +18,9 @@
   $('button#previous').on('click', function() {
     if (player.playState !== 'playing') { return; }
 
+    const currentSongIndex = album.songs.indexOf(player.currentlyPlaying);
     const prevSongIndex = currentSongIndex - 1;
-    if (prevSongIndex <= album.songs.length) { return; }
+    if (prevSongIndex <= -1) { return; }
     const prevSong = album.songs[prevSongIndex];
     player.playPause(prevSong);
 
